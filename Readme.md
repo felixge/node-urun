@@ -18,8 +18,7 @@ npm install urun
 In order to execute all test-*.js files inside a given directory, simply do:
 
 ```js
-var run = require('urun');
-run(__dirname, /test-.*\.js$/);
+require('urun')(__dirname, /test-.*\.js$/);
 ```
 
 You now get a nice progress indication, but that's it.  There are no more
