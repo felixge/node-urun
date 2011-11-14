@@ -8,6 +8,9 @@ var runner = new Runner({files: files, cwd: fixture});
 
 var events = [];
 runner
+  .on('start', function(_files) {
+    events.push(['start', _files]);
+  })
   .on('fileStart', function(relativePath) {
     events.push(['fileStart', relativePath]);
   })
@@ -20,13 +23,23 @@ runner
   .execute();
 
 process.on('exit', function() {
-  assert.deepEqual(events[0], ['fileStart', '2.js']);
-  assert.deepEqual(events[1].slice(0, 2), ['fileEnd', '2.js']);
-  assert.ok(events[1].slice(2, 3)[0] instanceof Error);
-  assert.equal(events[1].slice(3, 4)[0], 'I am stderr\nI am stdout\n');
+  var event = events.shift();
+  assert.deepEqual(event, ['start', files]);
 
-  assert.deepEqual(events[2], ['fileStart', 'a/a2.js']);
-  assert.deepEqual(events[3], ['fileEnd', 'a/a2.js', null, '']);
+  event = events.shift();
+  assert.deepEqual(event, ['fileStart', '2.js']);
 
-  assert.deepEqual(events[4], ['end']);
+  event = events.shift();
+  assert.deepEqual(event.slice(0, 2), ['fileEnd', '2.js']);
+  assert.ok(event.slice(2, 3)[0] instanceof Error);
+  assert.equal(event.slice(3, 4)[0], 'I am stderr\nI am stdout\n');
+
+  event = events.shift();
+  assert.deepEqual(event, ['fileStart', 'a/a2.js']);
+
+  event = events.shift();
+  assert.deepEqual(event, ['fileEnd', 'a/a2.js', null, '']);
+
+  event = events.shift();
+  assert.deepEqual(event, ['end']);
 });
