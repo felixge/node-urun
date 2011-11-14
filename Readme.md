@@ -11,9 +11,7 @@ UNIX citizen. Now it exists.
 
 ## Install
 
-```
-npm install urun
-```
+This is not ready yet.
 
 ## Usage
 
