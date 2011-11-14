@@ -11,6 +11,10 @@ finder.execute(function(err, _files) {
 });
 
 process.on('exit', function() {
+  files = files.filter(function(file) {
+    return !/un~$/.test(file);
+  });
+
   assert.deepEqual(files, [
     fixture + '/1.txt',
     fixture + '/2.js',
