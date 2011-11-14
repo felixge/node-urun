@@ -1,5 +1,7 @@
 # urun
 
+[![Build Status](https://secure.travis-ci.org/felixge/node-urun.png)](http://travis-ci.org/felixge/node-urun)
+
 The minimal test runner.
 
 ## Why yet another test runner?
