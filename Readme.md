@@ -11,14 +11,16 @@ UNIX citizen. Now it exists.
 
 ## Install
 
-This is not ready yet.
+```
+npm install urun
+```
 
 ## Usage
 
 In order to execute all test-*.js files inside a given directory, simply do:
 
 ```js
-require('urun')(__dirname, /test-.*\.js$/);
+require('urun')(__dirname, /test-.+\.js$/);
 ```
 
 You now get a nice progress indication, but that's it.  There are no more
