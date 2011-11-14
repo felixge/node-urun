@@ -16,6 +16,6 @@
   },
   "devDependencies": {
     "utest": "0.0.1",
-    "sinon": "1.2.0",
+    "sinon": "1.2.0"
   }
 }
