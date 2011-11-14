@@ -6,8 +6,8 @@ The minimal test runner.
 
 ## Why yet another test runner?
 
-I wanted something simple, that just runs test files and behaves like a good
-UNIX citizen. Now it exists.
+I wanted something simple, that just runs test files, shows progress, and
+behaves like a good UNIX citizen. Now it exists.
 
 ## Install
 
