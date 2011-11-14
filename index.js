@@ -4,6 +4,8 @@ var Runner       = require('./lib/Runner');
 var BashReporter = require('./lib/reporter/BashReporter');
 
 module.exports = function(dir, include) {
+  include = include || /test-.+\.js$/;
+
   var finder   = new FileFinder(dir);
   var filter   = new FileFilter({include: include});
 

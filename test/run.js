@@ -1,1 +1,1 @@
-require('..')(__dirname, /test-.+\.js$/);
+require('..')(__dirname);
