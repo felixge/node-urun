@@ -1,10 +1,10 @@
 var test       = require('utest');
 var assert     = require('assert');
-var FileRunner = require('../../lib/FileRunner');
+var FileExecutor = require('../../lib/FileExecutor');
 
-test('FileRunner', {
+test('FileExecutor', {
   'relativePath': function() {
-    var runner = new FileRunner({file: '/a/b/c', cwd: '/a'});
+    var runner = new FileExecutor({file: '/a/b/c', cwd: '/a'});
     assert.equal(runner.relativePath(), 'b/c');
   },
 });
