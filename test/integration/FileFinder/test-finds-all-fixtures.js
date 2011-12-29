@@ -25,6 +25,7 @@ process.on('exit', function() {
   assert.deepEqual(files, [
     fixture + '/1.txt',
     fixture + '/2.js',
+    fixture + '/3.js',
     fixture + '/a/a1.txt',
     fixture + '/a/a2.js',
     fixture + '/b/b1.txt',
