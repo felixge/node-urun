@@ -2,7 +2,7 @@
   "author": "Felix Geisendörfer <felix@debuggable.com> (http://debuggable.com/)",
   "name": "urun",
   "description": "The minimal test runner.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "homepage": "https://github.com/felixge/node-urun",
   "repository": {
     "url": ""
@@ -20,5 +20,6 @@
   },
   "dependencies": {
     "utest": "0.0.2"
-  }
+  },
+  "optionalDependencies": {}
 }
