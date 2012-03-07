@@ -30,7 +30,14 @@ The only other feature is specifying a regex for the files to run (default is
 `/test-.+\.js$/`), for example:
 
 ```js
-require('urun')(__dirname, /.+Test\.js$/);
+require('urun')(__dirname, { include: /.+Test\.js$/ });
+```
+
+## Reporter
+
+```js
+require('urun')(__dirname, { reporter: 'BashReporter' }); // default
+require('urun')(__dirname, { reporter: 'BashTapReporter' }); // tap compliant output
 ```
 
 ## License

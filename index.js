@@ -1,10 +1,11 @@
 var FileFilter   = require('./lib/FileFilter');
 var FileFinder   = require('./lib/FileFinder');
 var Runner       = require('./lib/Runner');
-var BashReporter = require('./lib/reporter/BashReporter');
 
-module.exports = function(dir, include) {
-  include = include || /test-.+\.js$/;
+module.exports = function(dir, options) {
+  var options  = options || {};
+  var include  = options.include  || /test-.+\.js$/;
+  var Reporter = require('./lib/reporter/' + (options.reporter || 'BashReporter'));
 
   var finder   = new FileFinder(dir);
   var filter   = new FileFilter({include: include});
@@ -15,7 +16,7 @@ module.exports = function(dir, include) {
     files = filter.filter(files);
 
     var runner   = new Runner({files: files});
-    var reporter = new BashReporter({runner: runner});
+    var reporter = new Reporter({runner: runner});
     runner.execute();
   });
 };
