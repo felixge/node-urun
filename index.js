@@ -5,7 +5,8 @@ var Runner       = require('./lib/Runner');
 module.exports = function(dir, options) {
   var options  = options || {};
   var include  = options.include  || /test-.+\.js$/;
-  var Reporter = require('./lib/reporter/' + (options.reporter || 'BashReporter'));
+  var Reporter = require('./lib/reporter/'
+    + (process.env.REPORTER || options.reporter || 'BashReporter'));
 
   var finder   = new FileFinder(dir);
   var filter   = new FileFilter({include: include});
