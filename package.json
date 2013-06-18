@@ -15,7 +15,7 @@
     "node": "*"
   },
   "devDependencies": {
-    "utest": "0.0.1",
+    "utest": "0.0.6",
     "sinon": "1.2.0"
   },
   "dependencies": {},
