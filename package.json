@@ -18,8 +18,6 @@
     "utest": "0.0.1",
     "sinon": "1.2.0"
   },
-  "dependencies": {
-    "utest": "0.0.2"
-  },
+  "dependencies": {},
   "optionalDependencies": {}
 }
