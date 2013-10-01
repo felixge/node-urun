@@ -24,9 +24,15 @@ require('urun')(__dirname);
 ```
 
 You now get a nice progress indication, as well as detailed output for each
-test that fails.
+test that fails. By default output is only printed for tests that fail. To enable
+detailed output for all tests, including those passing, include verbose: true
+in the list of options.
 
-The only other feature is specifying a regex for the files to run (default is
+```js
+require('urun')(__dirname, { verbose: true });
+```
+
+Another feature is specifying a regex for the files to run (default is
 `/test-.+\.js$/`), for example:
 
 ```js
