@@ -3,8 +3,8 @@ var Runner  = require('../../../lib/Runner');
 var path    = require('path');
 var fixture = path.join(__dirname, '../../fixture');
 
-var files  = [fixture + '/2.js', fixture + '/a/a2.js'];
-var runner = new Runner({files: files, cwd: fixture});
+var files  = [fixture + '/2.js', fixture + '/3.js', fixture + '/a/a2.js'];
+var runner = new Runner({files: files, cwd: fixture, timeout: 100});
 
 var events = [];
 runner
@@ -33,6 +33,14 @@ process.on('exit', function() {
   assert.deepEqual(event.slice(0, 2), ['fileEnd', '2.js']);
   assert.ok(event.slice(2, 3)[0] instanceof Error);
   assert.equal(event.slice(3, 4)[0], 'I am stderr\nI am stdout\n');
+
+  event = events.shift();
+  assert.deepEqual(event, ['fileStart', '3.js']);
+
+  event = events.shift();
+  assert.deepEqual(event.slice(0, 2), ['fileEnd', '3.js']);
+  assert.ok(event.slice(2, 3)[0] instanceof Error);
+  assert.equal(event.slice(3, 4)[0], '3.js timed out');
 
   event = events.shift();
   assert.deepEqual(event, ['fileStart', 'a/a2.js']);
