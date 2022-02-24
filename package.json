@@ -5,9 +5,6 @@
   "version": "0.0.8",
   "homepage": "https://github.com/felixge/node-urun",
   "repository": {
-    "url": ""
-  },
-  "repository": {
     "type": "git",
     "url": "https://github.com/felixge/node-urun.git"
   },
